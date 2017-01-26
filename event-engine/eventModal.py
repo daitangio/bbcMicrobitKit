@@ -40,19 +40,18 @@ def led_dance(c):
     display.set_pixel(a, b, dots[a][b])
     if ba:
         c.fadeParam=-1
-    elif bb:
+    if bb:
         c.fadeParam=1
-    else:
-        c.fadeParam=-1
-    for i in range(5):
-        for j in range(5):
-            newVal=dots[i][j] + c.fadeParam
-            if newVal >8:
-                newVal=8
-            elif newVal <0:
-                newVal=0
-            dots[i][j] = newVal
-            display.set_pixel(i, j, dots[i][j])
+    if ba or bb:
+        for i in range(5):
+            for j in range(5):
+                newVal=dots[i][j] + c.fadeParam
+                if newVal >8:
+                    newVal=8
+                elif newVal <0:
+                    newVal=0
+                dots[i][j] = newVal
+                display.set_pixel(i, j, dots[i][j])
 
     
 def buttons_test(c):
@@ -68,5 +67,5 @@ def buttons_test(c):
 # 0 means: no sleep at all, execute function and go.
 # For instance fot checking every 200ms buttons and updating led dance,
 # you should only set the led_dance:
-Queue=[ (buttons_test,80), (led_dance,0)]
+Queue=[ (buttons_test,0), (led_dance,280)]
 EventLoop()

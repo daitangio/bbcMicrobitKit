@@ -1,12 +1,5 @@
 #!/bin/bash
 cd $(dirname $0)
-#python 3.5 is needed
-if  [ "$MSYSTEM" == "MINGW64" ]; then
-    set -v -e -x
-    echo "Windows MINGW SYSTEM. Microbit Expected on D: disk"
-    # FIXME: Try auto-discovery
-    ./makecombinedhex.py   microbit-std.hex   $1  -o tmp.hex
-    cp tmp.hex D:/yep3.hex   
-else
-    ./makecombinedhex.py   microbit-std.hex   $1  -o /Volumes/MICROBIT/yeppa2.hex
-fi
+# See https://uflash.readthedocs.io/en/latest/
+uflash --runtime=microbit-micropython2017.hex  $1
+

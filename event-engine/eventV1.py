@@ -2,6 +2,10 @@ from microbit import *
 import random
 
 ## Micro event system
+## First example
+## FIXME:
+##  Same time for every function
+##  Context is boring to setup 
 Queue=[]
 Context= { "be_happy": True, "a": False, "b": False, "prob": -1 }
 

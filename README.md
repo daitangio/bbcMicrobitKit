@@ -8,3 +8,9 @@ What you need
  
  Tested on MacOSX 10.8.x and Windows 10
  
+# Installation
+
+Install uflash with
+ 
+pip install uflash
+
